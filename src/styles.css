@@ -1,0 +1,225 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #2f3034;
+  background: #e9e7f1;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: radial-gradient(circle at top, #faf9ff, #e7e5ef); }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.phone-frame {
+  width: min(100vw, 480px);
+  min-height: 100vh;
+  background: #f3f1fa;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 20px 60px rgba(0,0,0,0.12);
+}
+
+.screen {
+  min-height: 100vh;
+  padding: max(18px, env(safe-area-inset-top)) 18px max(24px, env(safe-area-inset-bottom));
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.header h1 { font-size: 20px; text-align: center; margin: 0; }
+.ghost {
+  border: 0;
+  background: rgba(255,255,255,0.7);
+  border-radius: 14px;
+  min-height: 40px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.hero-card, .empty-card {
+  background: white;
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 14px 30px rgba(45, 43, 80, 0.10);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.hero-card {
+  background: linear-gradient(140deg, #fff 0%, #fff7ed 100%);
+  margin-bottom: 16px;
+}
+.hero-card.compact { padding: 20px; }
+.hero-card h1 { font-size: 42px; margin: 0 0 8px; letter-spacing: -1.5px; }
+.hero-card p { margin: 0; color: #62636c; line-height: 1.55; }
+.eyebrow { color: #f28b2e !important; font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px !important; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 14px 0;
+}
+.stat {
+  background: rgba(255,255,255,0.82);
+  border-radius: 18px;
+  padding: 14px 8px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.stat strong { display: block; font-size: 24px; }
+.stat span { display: block; color: #767680; font-size: 12px; }
+
+.primary, .secondary, .danger, .orange-btn, .gray-btn {
+  border: 0;
+  border-radius: 18px;
+  padding: 15px 18px;
+  font-weight: 800;
+  min-height: 56px;
+}
+.full { width: 100%; margin-top: 10px; }
+.primary, .orange-btn { background: #f28b2e; color: white; box-shadow: 0 12px 24px rgba(242,139,46,0.22); }
+.secondary { background: white; color: #35363d; border: 1px solid rgba(0,0,0,0.08); }
+.danger { background: #fff0f0; color: #b42323; }
+.gray-btn { background: #a8a8aa; color: white; }
+
+h2 { font-size: 18px; margin: 24px 0 12px; }
+.muted { color: #777884; text-align: center; }
+
+.set-list, .word-list, .choices { display: grid; gap: 10px; }
+
+.set-row, .word-row {
+  width: 100%;
+  border: 0;
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.set-row span, .word-row span { display: block; color: #6f7079; margin-top: 4px; font-size: 13px; }
+.word-row strong { display: block; }
+.word-row small { color: #8a8b95; white-space: nowrap; margin-left: 12px; }
+
+.word-row.mastered { border-left: 4px solid #4caf50; }
+.word-row.weak { border-left: 4px solid #f44336; }
+
+.badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  letter-spacing: 0.03em;
+}
+.badge-ja { background: #e3f2fd; color: #1565c0; }
+.badge-en { background: #fce4ec; color: #c62828; }
+.badge-stress { background: #f3e5f5; color: #7b1fa2; }
+.badge-cloze { background: #e8f5e9; color: #2e7d32; }
+
+.quiz-badge-row { text-align: center; margin-bottom: 4px; }
+
+.quiz-screen { display: flex; flex-direction: column; }
+.quiz-title { text-align: center; padding: 12px 0 18px; }
+.quiz-title h1 {
+  font-size: 28px;
+  line-height: 1.35;
+  margin: 0 0 8px;
+  letter-spacing: -0.5px;
+  word-break: break-word;
+}
+.quiz-title p { margin: 0; font-weight: 700; color: #4d5160; }
+.stress-label { color: #7b1fa2; font-weight: 700; margin: 0 0 8px; font-size: 14px; }
+.cloze-translation { color: #6f7079; font-size: 15px; font-weight: 600; margin: 8px 0 0; line-height: 1.5; }
+
+.sound {
+  border: 0;
+  background: transparent;
+  font-size: 24px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.choices { margin-top: 8px; }
+.choices button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  border: 2px solid rgba(0,0,0,0.12);
+  border-radius: 14px;
+  min-height: 62px;
+  padding: 14px 18px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 15px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.choices button span { width: 28px; text-align: right; color: #999; font-size: 14px; }
+.choices button.correct {
+  border-color: #4caf50;
+  background: #e8f5e9;
+}
+.choices button.wrong {
+  border-color: #f44336;
+  background: #ffebee;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: max(60px, env(safe-area-inset-bottom));
+  width: min(90vw, 420px);
+  background: #4caf50;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 800;
+  box-shadow: 0 20px 40px rgba(0,0,0,.18);
+  z-index: 10;
+}
+.toast-wrong {
+  background: #f44336;
+}
+
+.progress-bar-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100vw, 480px);
+  height: 6px;
+  background: #e0e0e0;
+}
+.progress-fill {
+  height: 100%;
+  background: #f28b2e;
+  transition: width 0.3s ease;
+}
+
+.correct-label { color: #2e7d32 !important; font-weight: 700; }
+.wrong-label { color: #c62828 !important; font-weight: 700; }
+
+.empty-card { margin-top: 80px; text-align: center; }
+
+@media (min-width: 640px) {
+  .phone-frame { margin: 20px 0; min-height: calc(100vh - 40px); border-radius: 36px; overflow: hidden; }
+}
